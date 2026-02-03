@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: appprojects
+  namespace: argocd
+spec:
+  generators:
+    - matrix:
+        generators:
+          - git:
+              repoURL: https://github.com/org/platform-infra
+              revision: main
+              directories:
+                - path: tenants/*
+          - list:
+              elements:
+                - env: dev
+                - env: sdx
+                - env: prd
+  template:
+    metadata:
+      name: appproject-{{path.basename}}-{{env}}
+    spec:
+      project: bootstrap
+      source:
+        repoURL: https://github.com/org/platform-infra
+        targetRevision: main
+        path: appprojects/template-{{env}}
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argocd
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        preserveResourcesOnDeletion: true

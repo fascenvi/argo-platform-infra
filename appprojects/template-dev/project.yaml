@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: '{{path.basename}}-dev'
+  namespace: argocd
+spec:
+  description: '{{path.basename}} DEV environment'
+  sourceRepos:
+    - https://github.com/org/apps-*
+  destinations:
+    - namespace: '{{path.basename}}-dev-*'
+      server: https://kubernetes.default.svc
