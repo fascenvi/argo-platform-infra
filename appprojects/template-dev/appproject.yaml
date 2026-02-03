@@ -1,12 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: '{{path.basename}}-dev'
+  name: tenant
   namespace: argocd
 spec:
-  description: '{{path.basename}} DEV environment'
+  description: Tenant DEV
   sourceRepos:
-    - https://github.com/org/apps-*
+    - '*'
   destinations:
-    - namespace: '{{path.basename}}-dev-*'
+    - namespace: '*'
       server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'

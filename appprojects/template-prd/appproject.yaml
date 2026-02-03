@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: tenant
+  namespace: argocd
+spec:
+  description: Tenant PRD
+  sourceRepos:
+    - 'https://github.com/fascenvi/*'
+  destinations:
+    - namespace: '*'
+      server: https://kubernetes.default.svc
+
+  namespaceResourceWhitelist:
+    - group: ''
+      kind: ConfigMap
+    - group: 'apps'
+      kind: Deployment
+
+  syncPolicy: {}   # sem auto-sync
