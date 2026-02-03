@@ -1,3 +1,0 @@
-tenants:
-  - name: boleto
-    environment: dev
