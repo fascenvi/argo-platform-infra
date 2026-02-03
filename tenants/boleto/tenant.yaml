@@ -1,6 +1,0 @@
-name: boleto
-displayName: Boleto
-owner: payments-team
-criticality: high
-namespace:
-  pattern: '{{path.basename}}-{{env}}'
