@@ -12,6 +12,8 @@ spec:
               revision: main
               directories:
                 - path: tenants/*
+              files:
+                - path: tenants/*/tenant.yaml
           - list:
               elements:
                 - env: dev
