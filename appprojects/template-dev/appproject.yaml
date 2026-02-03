@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: tenant
+  name: dev
   namespace: argocd
 spec:
-  description: Tenant DEV
+  description: Development Environment
   sourceRepos:
     - '*'
   destinations:

@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: tenant
+  name: prd
   namespace: argocd
 spec:
-  description: Tenant PRD
+  description: Production Environment
   sourceRepos:
     - 'https://github.com/fascenvi/*'
   destinations:
