@@ -21,7 +21,7 @@ spec:
 
   template:
     metadata:
-      name: "{{name}}-{{path.basename}}-{{env}}"
+      name: boleto-{{path.basename}}-{{env}}
     spec:
       project: "boleto-{{env}}"
 
