@@ -10,11 +10,9 @@ spec:
   destinations:
     - namespace: '*'
       server: https://kubernetes.default.svc
-
   namespaceResourceWhitelist:
     - group: ''
       kind: ConfigMap
     - group: 'apps'
       kind: Deployment
-
   syncPolicy: {}
