@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: boleto-apps
+  name: apps
   namespace: argocd
 spec:
   generators:
@@ -11,7 +11,7 @@ spec:
               repoURL: https://github.com/fascenvi/argo-platform-infra.git
               revision: main
               files:
-                - path: tenants/boleto.yaml
+                - path: tenants/*.yaml
 
           - git:
               repoURL: "{{repoURL}}"
@@ -29,7 +29,7 @@ spec:
     metadata:
       name: "{{name}}-{{path.basename}}-{{env}}"
     spec:
-      project: "{{project}}"
+      project: "{{name}}-{{env}}"
 
       source:
         repoURL: "{{repoURL}}"
@@ -37,5 +37,5 @@ spec:
         path: apps/{{path.basename}}/overlays/{{env}}
 
       destination:
-        name: "boleto-{{env}}"
+        name: "{{name}}-{{env}}"
         namespace: "*-{{env}}"
