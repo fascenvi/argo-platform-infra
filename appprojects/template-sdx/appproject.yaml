@@ -9,7 +9,7 @@ spec:
     - '*'
   destinations:
     - namespace: '*-sdx'
-      name: "{{name}}-sdx"
+      name: {{name}}-sdx
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
