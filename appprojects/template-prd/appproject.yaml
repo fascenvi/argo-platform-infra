@@ -15,4 +15,3 @@ spec:
       kind: ConfigMap
     - group: 'apps'
       kind: Deployment
-  preserveResourcesOnDeletion: true
