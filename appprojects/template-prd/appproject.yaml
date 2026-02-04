@@ -15,5 +15,4 @@ spec:
       kind: ConfigMap
     - group: 'apps'
       kind: Deployment
-  syncPolicy: {}
   preserveResourcesOnDeletion: true
