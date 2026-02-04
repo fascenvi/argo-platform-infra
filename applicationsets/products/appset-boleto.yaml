@@ -10,7 +10,7 @@ spec:
 
           # 🔹 TENANTS
           - git:
-              repoURL: https://github.com/org/argo-platform-infra.git
+              repoURL: https://github.com/fascenvi/argo-platform-infra.git
               revision: main
               files:
                 - path: tenants/boleto.yaml
