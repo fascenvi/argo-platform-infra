@@ -27,7 +27,7 @@ spec:
       sourceRepos:
         - "*"  # Pode restringir a repositórios específicos
       destinations:
-        - name: "{{name}}-{{environment}}"
+        - name: {{name}}-{{environment}}
           namespace: "*"
       clusterResourceWhitelist:
         - group: "*"
