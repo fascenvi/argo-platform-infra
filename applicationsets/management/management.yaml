@@ -35,12 +35,12 @@ spec:
             - target:
                 kind: AppProject
                 patch: |
-                - op: replace
-                  path: /metadata/name
-                  value: "{{name}}-{{env}}"              
-                - op: replace
-                  path: /spec/destinations/0/name
-                  value: "{{name}}-{{env}}"
+                  - op: replace
+                    path: /metadata/name
+                    value: "{{name}}-{{env}}"              
+                  - op: replace
+                    path: /spec/destinations/0/name
+                    value: "{{name}}-{{env}}"
 
 
       destination:
