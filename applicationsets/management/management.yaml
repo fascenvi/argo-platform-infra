@@ -29,9 +29,9 @@ spec:
         targetRevision: main
         path: appprojects/template-{{environment}}
         kustomize:
-          namePrefix: {{name}}
+          namePrefix: "{{name}}-"
       destination:
-        name: "{{name}}-{{environment}}"
+        server: https://kubernetes.default.svc
         namespace: argocd
       syncPolicy:
         automated:
