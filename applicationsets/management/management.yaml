@@ -37,7 +37,7 @@ spec:
               - op: add
                 path: /spec/destinations
                 value:
-                - name: {{name}}-{{environment}}
+                - name: "{{name}}-{{environment}}"
                   namespace: "*-{{environment}}"
       destination:
         server: https://kubernetes.default.svc
