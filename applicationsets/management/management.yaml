@@ -27,7 +27,8 @@ spec:
       sourceRepos:
         - "*"  # Pode restringir a repositórios específicos
       destinations:
-        - name: "{{name}}-{{environment}}"
+        - server: https://kubernetes.default.svc
+          name: "{{name}}-{{environment}}"
           namespace: "*"
       clusterResourceWhitelist:
         - group: "*"
