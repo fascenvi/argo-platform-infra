@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: boleto-apps
+  name: apps
   namespace: argocd
 spec:
   generators:
@@ -13,7 +13,7 @@ spec:
               repoURL: https://github.com/fascenvi/argo-platform-infra.git
               revision: main
               files:
-                - path: tenants/boleto.yaml
+                - path: tenants/*.yaml
 
           # 🔹 APPS
           - git:
@@ -24,10 +24,7 @@ spec:
 
           # 🔹 ENVS vindos do tenant
           - list:
-              elements:
-                {{- range $env, $_ := .envs }}
-                - env: {{ $env }}
-                {{- end }}
+              elements: {{ .environments }}
 
   template:
     metadata:
