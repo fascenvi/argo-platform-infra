@@ -15,7 +15,7 @@ spec:
 
           - list:
               elements:
-                # - env: dev
+                - env: dev
                 # - env: sdx
                 # - env: prd
 
