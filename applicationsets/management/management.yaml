@@ -31,7 +31,6 @@ spec:
         path: appprojects/overlays/{{env}}
 
         kustomize:
-          namePrefix: "{{name}}-{{env}}-"
           patches:
             - target:
                 kind: AppProject
