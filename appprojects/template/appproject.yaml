@@ -9,6 +9,10 @@ spec:
   sourceRepos:
     - "*"
 
+  destinations:
+    - name: CLUSTER_NAME
+      namespace: "*"
+
   clusterResourceWhitelist:
     - group: "*"
       kind: "*"
