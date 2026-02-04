@@ -39,6 +39,9 @@ spec:
                   path: /metadata/name
                   value: "{{name}}-{{env}}"
                 - op: replace
+                  path: /spec/description
+                  value: "AppProject {{name}} {{env}}"
+                - op: replace
                   path: /spec/destinations/0/name
                   value: "{{name}}-{{env}}"
 

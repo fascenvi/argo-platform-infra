@@ -4,7 +4,7 @@ metadata:
   name: NAME
   namespace: argocd
 spec:
-  description: Managed AppProject
+  description: AppProject
 
   sourceRepos:
     - "*"
