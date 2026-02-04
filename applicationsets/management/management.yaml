@@ -1,43 +1,45 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: tenants-appprojects
+  name: appprojects
   namespace: argocd
 spec:
   generators:
     - matrix:
         generators:
-          # 1) Lê todos os tenants do repositório
           - git:
               repoURL: https://github.com/fascenvi/argo-platform-infra.git
               revision: main
               files:
                 - path: tenants/*.yaml
-          # 2) Lista de environments
+
           - list:
               elements:
-                - environment: dev
-                - environment: sdx
-                - environment: prd
+                - env: dev
+                - env: sdx
+                - env: prd
 
   template:
-    project: management
     metadata:
-      name: appproject-{{name}}-{{environment}}
+      name: appproject-{{name}}-{{env}}
     spec:
-      sourceRepos:
-        - "*"
-      destinations:
-        - server: https://kubernetes.default.svc
-          name: "{{name}}-{{environment}}"
-          namespace: "*"
+      project: management
+
+      source:
+        repoURL: https://github.com/fascenvi/argo-platform-infra.git
+        targetRevision: main
+        path: appprojects/overlays/{{env}}
+        kustomize:
+          namePrefix: "{{name}}-{{env}}-"
+          replacements:
+            - source:
+                value: "{{name}}-{{env}}"
+              targets:
+                - select:
+                    kind: AppProject
+                  fieldPaths:
+                    - spec.destinations.0.name
+
       destination:
-        - server: https://kubernetes.default.svc
-          name: "{{name}}-{{environment}}"
-          namespace: "*"
-      clusterResourceWhitelist:
-        - group: "*"
-          kind: "*"
-      namespaceResourceWhitelist:
-        - group: "*"
-          kind: "*"
+        server: https://kubernetes.default.svc
+        namespace: argocd

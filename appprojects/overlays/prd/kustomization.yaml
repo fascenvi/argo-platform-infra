@@ -1,0 +1,12 @@
+resources:
+  - ../../template
+
+patches:
+  - target:
+      kind: AppProject
+    patch: |
+      - op: add
+        path: /spec/destinations
+        value:
+          - name: PLACEHOLDER
+            namespace: "*-prd"
