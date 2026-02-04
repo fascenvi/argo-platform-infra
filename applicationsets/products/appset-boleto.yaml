@@ -7,12 +7,11 @@ spec:
   generators:
     - matrix:
         generators:
-
           - git:
               repoURL: https://github.com/fascenvi/argo-platform-infra.git
               revision: main
               files:
-                - path: tenants/*.yaml
+                - path: tenants/boleto.yaml
 
           - git:
               repoURL: "{{repoURL}}"
@@ -35,9 +34,8 @@ spec:
         path: apps/{{path.basename}}/overlays/{{env}}
 
       destination:
-        name: "{{name}}-{{env}}"
+        name: "boleto-{{env}}"
         namespace: "*-{{env}}"
-
 {{- if ne .env "prd" }}
       syncPolicy:
         automated:
