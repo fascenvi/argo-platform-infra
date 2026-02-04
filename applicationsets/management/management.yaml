@@ -21,6 +21,7 @@ spec:
                 - environment: prd
 
   template:
+    project: management
     metadata:
       name: appproject-{{name}}-{{environment}}
     spec:
