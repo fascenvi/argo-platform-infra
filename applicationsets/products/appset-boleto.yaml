@@ -20,7 +20,10 @@ spec:
                 - path: apps/*
 
           - list:
-              elements: {{ .environments }}
+              elements:
+                - env: dev
+                - env: sdx
+                - env: prd
 
   template:
     metadata:
