@@ -23,18 +23,15 @@ spec:
     metadata:
       name: appproject-{{name}}-{{environment}}
     spec:
-      project: management
-      source:
-        repoURL: https://github.com/fascenvi/argo-platform-infra.git
-        targetRevision: main
-        path: appprojects/template-{{environment}}
-        kustomize:
-          namePrefix: "{{name}}-"
-      destination:
-        server: https://kubernetes.default.svc
-        name: "{{name}}-{{environment}}"
-        namespace: "*"
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
+      sourceRepos:
+        - "*"  # Pode restringir a repositórios específicos
+      destinations:
+        - server: https://kubernetes.default.svc
+          name: "{{name}}-{{environment}}"
+          namespace: "*"
+      clusterResourceWhitelist:
+        - group: "*"
+          kind: "*"
+      namespaceResourceWhitelist:
+        - group: "*"
+          kind: "*"
