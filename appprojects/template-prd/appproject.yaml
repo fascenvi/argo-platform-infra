@@ -8,8 +8,8 @@ spec:
   sourceRepos:
     - 'https://github.com/fascenvi/*'
   destinations:
-    - namespace: '*'
-      server: https://kubernetes.default.svc
+    - namespace: '*-prd'
+      name: "{{name}}-prd"
   namespaceResourceWhitelist:
     - group: ''
       kind: ConfigMap
