@@ -30,15 +30,6 @@ spec:
         path: appprojects/template-{{environment}}
         kustomize:
           namePrefix: {{name}}
-          patches:
-          - target:
-              kind: AppProject
-            patch: |
-              - op: add
-                path: /spec/destinations
-                value:
-                - name: "{{name}}-{{environment}}"
-                  namespace: "*-{{environment}}"
       destination:
         server: https://kubernetes.default.svc
         namespace: argocd
