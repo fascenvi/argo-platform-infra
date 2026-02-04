@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: management
+  name: appprojects-management
   namespace: argocd
 spec:
   generators:
@@ -11,7 +11,7 @@ spec:
               repoURL: https://github.com/fascenvi/argo-platform-infra.git
               revision: main
               files:
-                - path: applicationsets/*.yaml
+                - path: tenants/*.yaml
 
           - list:
               elements:
@@ -27,7 +27,7 @@ spec:
       source:
         repoURL: https://github.com/fascenvi/argo-platform-infra.git
         targetRevision: main
-        path: applicationsets/{{name}}
+        path: appprojects/template-{{environment}}
         kustomize:
           namePrefix: "{{name}}-"
       destination:
