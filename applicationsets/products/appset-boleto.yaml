@@ -36,9 +36,3 @@ spec:
       destination:
         name: "boleto-{{env}}"
         namespace: "*-{{env}}"
-{{- if ne .env "prd" }}
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
-{{- end }}
