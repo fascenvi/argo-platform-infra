@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: dev
+  name: PLACEHOLDER
   namespace: argocd
 spec:
   description: Development Environment
@@ -9,7 +9,7 @@ spec:
     - '*'
   destinations:
     - namespace: '*-dev'
-      name: '{{name}}-dev'
+      name: PLACEHOLDER
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
