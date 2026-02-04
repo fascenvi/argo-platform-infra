@@ -26,7 +26,7 @@ spec:
       project: "boleto-{{env}}"
 
       source:
-        repoURL: "{{repoURL}}"
+        repoURL: https://github.com/fascenvi/argocd-boleto-apps.git
         targetRevision: main
         path: apps/{{path.basename}}/overlays/{{env}}
 
