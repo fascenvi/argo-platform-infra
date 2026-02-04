@@ -1,33 +1,35 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: appprojects
+  name: management
   namespace: argocd
 spec:
   generators:
     - matrix:
         generators:
           - git:
-              repoURL: https://github.com/org/platform-infra
+              repoURL: https://github.com/fascenvi/argo-platform-infra.git
               revision: main
-              directories:
-                - path: tenants/*
               files:
-                - path: tenants/*/tenant.yaml
+                - path: applicationsets/*.yaml
+
           - list:
               elements:
-                - env: dev
-                - env: sdx
-                - env: prd
+                - environment: dev
+                - environment: sdx
+                - environment: prd
+
   template:
     metadata:
-      name: appproject-{{path.basename}}-{{env}}
+      name: appproject-{{name}}-{{environment}}
     spec:
-      project: bootstrap
+      project: management
       source:
-        repoURL: https://github.com/org/platform-infra
+        repoURL: https://github.com/fascenvi/argo-platform-infra.git
         targetRevision: main
-        path: appprojects/template-{{env}}
+        path: applicationsets/{{name}}
+        kustomize:
+          namePrefix: "{{name}}-"
       destination:
         server: https://kubernetes.default.svc
         namespace: argocd
@@ -35,4 +37,3 @@ spec:
         automated:
           prune: true
           selfHeal: true
-        preserveResourcesOnDeletion: true
