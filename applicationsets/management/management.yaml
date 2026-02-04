@@ -28,6 +28,8 @@ spec:
         repoURL: https://github.com/fascenvi/argo-platform-infra.git
         targetRevision: main
         path: appprojects/template-{{environment}}
+        kustomize:
+          namePrefix: {{name}}-{{environment}}
       destination:
         server: https://kubernetes.default.svc
         namespace: argocd
