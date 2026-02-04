@@ -9,7 +9,7 @@ spec:
     - '*'
   destinations:
     - namespace: '*-dev'
-      name: {{name}}-dev
+      name: '{{name}}-dev'
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
