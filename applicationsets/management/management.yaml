@@ -21,7 +21,7 @@ spec:
 
   template:
     metadata:
-      name: appproject-{{name}}-{{env}}
+      name: appProject-{{name}}-{{env}}
     spec:
       project: management
 
@@ -37,11 +37,10 @@ spec:
               patch: |
                 - op: replace
                   path: /metadata/name
-                  value: "{{name}}-{{env}}"              
+                  value: "{{name}}-{{env}}"
                 - op: replace
                   path: /spec/destinations/0/name
                   value: "{{name}}-{{env}}"
-
 
       destination:
         server: https://kubernetes.default.svc
