@@ -29,6 +29,7 @@ spec:
         repoURL: https://github.com/fascenvi/argo-platform-infra.git
         targetRevision: main
         path: appprojects/overlays/{{env}}
+
         kustomize:
           namePrefix: "{{name}}-{{env}}-"
           replacements:
