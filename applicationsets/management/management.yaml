@@ -21,7 +21,7 @@ spec:
 
   template:
     metadata:
-      name: appProject-{{name}}-{{env}}
+      name: appproject-{{name}}-{{env}}
     spec:
       project: management
 
