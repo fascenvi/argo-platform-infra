@@ -1,4 +1,7 @@
 name: boleto
 owner: team-a
 repoURL: https://github.com/fascenvi/argocd-boleto-apps.git
-appsPath: apps
+envs:
+  dev: {}
+  sdx: {}
+  prd: {}
