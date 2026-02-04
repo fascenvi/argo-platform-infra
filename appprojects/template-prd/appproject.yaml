@@ -16,3 +16,4 @@ spec:
     - group: 'apps'
       kind: Deployment
   syncPolicy: {}
+  preserveResourcesOnDeletion: true
