@@ -7,9 +7,6 @@ spec:
   description: Development Environment
   sourceRepos:
     - '*'
-  destinations:
-    - namespace: '*-dev'
-      name: PLACEHOLDER
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'

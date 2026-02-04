@@ -34,9 +34,11 @@ spec:
           - target:
               kind: AppProject
             patch: |
-              - op: replace
-                path: /spec/destinations/0/name
-                value: {{name}}-{{environment}}
+              - op: add
+                path: /spec/destinations
+                value:
+                - name: {{name}}-{{environment}}
+                  namespace: "*-{{environment}}"
       destination:
         server: https://kubernetes.default.svc
         namespace: argocd

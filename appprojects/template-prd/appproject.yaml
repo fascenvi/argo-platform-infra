@@ -7,9 +7,6 @@ spec:
   description: Production Environment
   sourceRepos:
     - 'https://github.com/fascenvi/*'
-  destinations:
-    - namespace: '*-prd'
-      name: PLACEHOLDER
   namespaceResourceWhitelist:
     - group: ''
       kind: ConfigMap

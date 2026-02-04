@@ -7,9 +7,6 @@ spec:
   description: Sandbox Environment
   sourceRepos:
     - '*'
-  destinations:
-    - namespace: '*-sdx'
-      name: PLACEHOLDER
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
