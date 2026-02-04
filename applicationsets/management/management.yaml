@@ -29,7 +29,7 @@ spec:
         targetRevision: main
         path: appprojects/template-{{environment}}
         kustomize:
-          namePrefix: {{name}}-{{environment}}
+          namePrefix: {{name}}
           patches:
           - target:
               kind: AppProject

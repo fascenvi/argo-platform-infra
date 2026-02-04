@@ -9,7 +9,7 @@ spec:
     - 'https://github.com/fascenvi/*'
   destinations:
     - namespace: '*-prd'
-      name: {{name}}-prd
+      name: PLACEHOLDER
   namespaceResourceWhitelist:
     - group: ''
       kind: ConfigMap
