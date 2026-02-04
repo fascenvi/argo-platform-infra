@@ -1,18 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: appprojects-management
+  name: tenants-appprojects
   namespace: argocd
 spec:
   generators:
     - matrix:
         generators:
+          # 1) Lê todos os tenants do repositório
           - git:
               repoURL: https://github.com/fascenvi/argo-platform-infra.git
               revision: main
               files:
                 - path: tenants/*.yaml
-
+          # 2) Lista de environments
           - list:
               elements:
                 - environment: dev
@@ -23,9 +24,8 @@ spec:
     metadata:
       name: appproject-{{name}}-{{environment}}
     spec:
-      project: management
       sourceRepos:
-        - "*"  # Pode restringir a repositórios específicos
+        - "*"
       destinations:
         - server: https://kubernetes.default.svc
           name: "{{name}}-{{environment}}"
