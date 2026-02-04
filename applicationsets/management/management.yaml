@@ -23,6 +23,7 @@ spec:
     metadata:
       name: appproject-{{name}}-{{environment}}
     spec:
+      project: management
       sourceRepos:
         - "*"  # Pode restringir a repositórios específicos
       destinations:
