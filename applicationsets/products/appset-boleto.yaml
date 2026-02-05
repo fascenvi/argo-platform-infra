@@ -37,8 +37,6 @@ spec:
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
-      {{- if ne .env "prd" }}
         automated:
           prune: true
           selfHeal: true
-      {{- end }}
