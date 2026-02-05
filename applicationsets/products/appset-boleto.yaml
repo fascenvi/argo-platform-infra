@@ -32,7 +32,7 @@ spec:
 
       destination:
         name: "boleto-{{env}}"
-        namespace: "*-{{env}}"
+        # namespace: "*-{{env}}"
 
       syncPolicy:
         syncOptions:
